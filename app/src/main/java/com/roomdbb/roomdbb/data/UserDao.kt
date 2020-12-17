@@ -14,5 +14,11 @@ interface UserDao {
     fun readAllData():LiveData<List<User>>
 
     @Update
-    fun updateUser(user: User)
+    suspend fun updateUser(user: User)
+
+    @Delete
+    suspend fun deleteUser(user: User)
+
+    @Query("DELETE FROM user_table")
+    suspend fun deleteAll()
 }

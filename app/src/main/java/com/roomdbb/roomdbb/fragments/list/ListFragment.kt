@@ -1,10 +1,9 @@
 package com.roomdbb.roomdbb.fragments.list
 
 import android.os.Bundle
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -29,6 +28,31 @@ class ListFragment : Fragment() {
         userViewModel.readAllData.observe(viewLifecycleOwner, Observer { user ->
             adapter.setData(user)
         })
+        setHasOptionsMenu(true)
         return view
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.delete_menu,menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId== R.id.menu_delete){
+            deleteAll()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+    private fun deleteAll(){
+        val builder= androidx.appcompat.app.AlertDialog.Builder(requireContext())
+        builder.setTitle("Delete All")
+        builder.setMessage("Delete All User ?")
+        builder.setNegativeButton("No"){_,_ ->
+
+        }
+        builder.setPositiveButton("Yes"){_,_ ->
+            userViewModel.deleteAll()
+            Toast.makeText(requireContext(),"Delete All Users", Toast.LENGTH_LONG).show()
+        }
+        builder.create().show()
     }
 }

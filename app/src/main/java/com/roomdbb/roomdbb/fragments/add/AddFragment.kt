@@ -1,11 +1,10 @@
 package com.roomdbb.roomdbb.fragments.add
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -26,6 +25,7 @@ class AddFragment : Fragment() {
         view.btnAdd.setOnClickListener {
             insertDatatoDatabase()
         }
+
         return view
     }
     private fun insertDatatoDatabase(){
@@ -44,4 +44,5 @@ class AddFragment : Fragment() {
     fun isCheck(firstName:String, lastName:String, age :String):Boolean{
         return !(TextUtils.isEmpty(firstName) && TextUtils.isEmpty(lastName) && TextUtils.isEmpty(age) )
     }
+
 }
