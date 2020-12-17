@@ -10,8 +10,8 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.roomdbb.roomdbb.R
-import com.roomdbb.roomdbb.data.User
-import com.roomdbb.roomdbb.data.UserViewModel
+import com.roomdbb.roomdbb.model.User
+import com.roomdbb.roomdbb.userviewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
 class AddFragment : Fragment() {

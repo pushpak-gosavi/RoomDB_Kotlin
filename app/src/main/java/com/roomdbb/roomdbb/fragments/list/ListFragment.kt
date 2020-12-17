@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.roomdbb.roomdbb.R
-import com.roomdbb.roomdbb.data.UserViewModel
+import com.roomdbb.roomdbb.userviewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 class ListFragment : Fragment() {
